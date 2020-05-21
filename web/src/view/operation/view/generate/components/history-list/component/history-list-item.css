@@ -3,10 +3,24 @@
     justify-content: space-around;
 }
 .list-puf{
-    width: 40%;
+    width: 45%;
+    height: 85px;
+}
+.list-puf>div{
+    height: 80%;
+    background-color: whitesmoke;
+    padding: 5px;
+    overflow: scroll;
+}
+.list-puf>p{
+    font-weight: bold;
 }
 .delete{
     float: right;
     top: 0;
     right: 0;
+}
+.txt-p{
+    font-family: Helvetica, serif;
+    word-wrap: break-word;
 }

@@ -1,27 +1,60 @@
 .register{
     width: 100%;
-    height: 500px;
+    height: 520px;
     display: flex;             /*flex弹性布局*/
     justify-content: center;
     align-items: center;
 }
 .register-reg{
     width: 25%;
-    height: 350px;
-    border: 1px solid #aaaaaa;
-    border-radius: 5%;
+    height: 370px;
+    border: 2px solid #2C2C32;
+    border-radius: 3%;
     padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 17px rgba(0,0,0,.7) ;
+    z-index: 2;
 }
 .reg{
-    font-size: 30px;
+    font-size: 35px;
     font-family: 'NSimSun', serif;
     font-weight: bolder;
     margin-bottom: 15px;
     margin-top: 10px;
-    color: #333333;
 }
 .reg-check{
     display: inline-block;
     width: 90%;
     margin-right: 10px;
+}
+.btn-reg{
+    margin-top: 20px;
+    width: 30%;
+    background-color: goldenrod;
+    /*color: white;*/
+    font-size: 15px;
+    font-weight: bolder;
+    font-family: "Helvetica Neue", serif;
+    border: 1px solid black;
+}
+.btn-reg:hover{
+    width: 35%;
+    background-color: goldenrod;
+    border: 1px solid black;
+}
+.reg-area1{
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-top: 420px solid black;
+}
+.reg-area2{
+    position: absolute;
+    z-index: 1;
+    width: 60%;
+    height: 3%;
+    background-color: black;
 }

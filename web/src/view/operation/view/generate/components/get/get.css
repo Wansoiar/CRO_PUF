@@ -1,22 +1,72 @@
 .get{
     box-sizing: border-box;
     padding: 3% 4%;
-    height: 55%;
+    height: 62%;
     width: 100%;
 }
+.btn-div{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.btn-get{
+    width: 30%;
+    background-color: goldenrod;
+    /*color: white;*/
+    font-size: 15px;
+    font-weight: bolder;
+    font-family: "Helvetica Neue", serif;
+    border: 1px solid black;
+}
+.btn-get:link,.btn-get:hover{
+    width: 32%;
+    background-color: goldenrod;
+    border: 1px solid black;
+}
 .result-list{
-    height: 80%;
+    height: 75%;
     margin: 3% 3%;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 .result{
-    width: 37%;
-    height: 75%;
-    padding: 2%;
+    width: 100%;
+    height: 40%;
     display: flex;
-    justify-content: center;
-    border: 1px solid darkslateblue;
+    justify-content: left;
+
+}
+.result>div{
+    width: 100%;
+    margin-left: 10px;
+    padding: 7px 10px;
+    border: 1.2px solid #dddddd;
+    background-color: white;
+    overflow: scroll;
+}
+.result>p{
+    font-weight: bold;
+}
+::-webkit-scrollbar {
+    width: 20px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    border: 6px solid rgba(0, 0, 0, 0);
+    box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: 8px 0 0 #4A4A4A inset;
+}
+.result p{
+    font-size: 16px;
+    margin: 0;
+    font-family: Helvetica, serif;
+    word-wrap: break-word;
 }
 .port{
     float: right;

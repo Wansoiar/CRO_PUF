@@ -6,12 +6,14 @@ import Operation from '../../view/operation/operation';
 import Login from '../../view/login/login';
 import Register from '../../view/register/register';
 
+import './app.css';
+
 export default class App extends Component{
 
     render(){
         return(
             <div style={{height: '100%'}}>
-                <nav className='navbar navbar-default navbar-fixed-top'>
+                <nav className='navbar navbar-default navbar-fixed-top navbar-inverse myNav'>
                     <div className='container'>
                         <ul className='nav navbar-nav nav-pills'>
                             <li><NavLink to='/welcome'>首页</NavLink></li>
@@ -24,7 +26,7 @@ export default class App extends Component{
                         </ul>
                     </div>
                 </nav>
-                <div style={{height: '100%'}}>
+                <div style={{height: '100%'}} className='myContainer'>
                     <Switch>
                         <Route path='/welcome' component={Welcome}/>
                         <Route path='/operation' component={Operation}/>

@@ -8,7 +8,7 @@ export default class HistoryList extends Component{
     render(){
         return(
             <div className='history'>
-                <p>历史生成记录：</p>
+                <p><span className='glyphicon glyphicon-tasks'/> 历史生成记录：</p>
                 <ul className="list-group his-list">
                     <HistoryListItem/>
                     <HistoryListItem/>

@@ -18,9 +18,11 @@ export default class Login extends Component{
                             <label htmlFor="userPwd">密码：</label>
                             <input type='text' className='form-control' id='userPwd' placeholder='Password'/>
                         </div>
-                        <button type="submit" className="btn btn-default center-block">登录</button>
+                        <button type="submit" className="btn btn-default center-block btn-log">登录</button>
                     </form>
                 </div>
+                <div className='log-area1'/>
+                <div className='log-area2'/>
             </div>
         )
     }

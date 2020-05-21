@@ -13,17 +13,17 @@ export default class HistoryListItem extends Component{
                     <div className='his-content'>
                         <div className='list-puf'>
                             <p>PUFA:</p>
-                            <ul className='list-group'>
-                                <li className="list-group-item">S:xxxxxxxxxxxxxxx</li>
-                                <li className="list-group-item">C:xxxxxxxxxxxxxxx</li>
-                            </ul>
+                            <div>
+                                <p className='txt-p'>S:xxxxxxxxxxxxxxx</p>
+                                <p className='txt-p'>C:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                            </div>
                         </div>
                         <div className='list-puf'>
                             <p>PUFB:</p>
-                            <ul className='list-group'>
-                                <li className="list-group-item">S:xxxxxxxxxxxxxxx</li>
-                                <li className="list-group-item">C:xxxxxxxxxxxxxxx</li>
-                            </ul>
+                            <div>
+                                <p className='txt-p'>S:xxxxxxxxxxxxxxx</p>
+                                <p className='txt-p'>C:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                            </div>
                         </div>
                     </div>
                 </div>

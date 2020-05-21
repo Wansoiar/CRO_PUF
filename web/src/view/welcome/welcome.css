@@ -2,9 +2,35 @@
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #2C2C32;
 }
 .sayWelcome{
+    font-family: STXihei, serif;
+    font-weight: bolder;
+    color: whitesmoke;
     font-size: 40px;
+    padding: 30px 60px;
+    border-bottom: 1px solid #cccccc;
+    z-index: 2;
+}
+.disc{
+    color: #aaaaaa;
+    padding: 30px 0;
+    text-align: center;
+    font-family: Georgia, serif;
+    width: 50%;
+    z-index: 2;
+}
+.background-area{
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-bottom: 350px solid black;
+    box-shadow: 0 0 15px rgba(0,0,0,.9) ;
 }

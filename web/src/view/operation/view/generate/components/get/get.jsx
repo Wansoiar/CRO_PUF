@@ -10,20 +10,22 @@ export default class Get extends Component{
                 <div className='port'>
                     <a href='https://www.baidu.com' target='_blank'>打开串口助手</a>
                 </div>
-                <button className='btn btn-default center-block'>生成配置位S与Challenge对序列</button>
+                <div className='btn-div'>
+                <button className='btn btn-default btn-get'>生成配置位S与Challenge对序列</button>
+                </div>
                 <div className='result-list'>
                     <div className='result'>
+                        <p>PUFA:</p>
                         <div>
-                            <p>PUFA:</p>
-                            <p>S:xxxxxxxxxxxxxxxxx</p>
-                            <p>C:xxxxxxxxxxxxxxxxx</p>
+                            <p>S:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                            <p>C:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
                         </div>
                     </div>
                     <div className='result'>
+                        <p>PUFB:</p>
                         <div>
-                            <p>PUFB:</p>
                             <p>S:xxxxxxxxxxxxxxxxx</p>
-                            <p>C:xxxxxxxxxxxxxxxxx</p>
+                            <p>C:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
                         </div>
                     </div>
                 </div>
