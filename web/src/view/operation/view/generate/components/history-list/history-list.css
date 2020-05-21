@@ -1,0 +1,14 @@
+.history{
+    height: 45%;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid gray;
+}
+.history>p{
+    margin: 10px 15px;
+}
+.his-list{
+    height: 85%;
+
+    overflow: scroll;
+}

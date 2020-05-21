@@ -1,0 +1,24 @@
+.operation{
+    height: 100%;
+    width: 100%;
+    background-color: #eeeeee;
+}
+.puf-list{
+    width: 13%;
+    height: 100%;
+    margin: 0;
+    float: left;
+    left: 0;
+    background-color: #cccccc;
+}
+.puf-ul{
+    margin: 7%;
+    width: 85%;
+}
+.puf-show{
+    box-sizing: border-box;
+    padding-left: 13%;
+    padding-right: 0;
+    width: 100%;
+    height: 100%;
+}

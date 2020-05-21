@@ -1,0 +1,33 @@
+.add{
+    margin: 10px 15px;
+}
+.puf-input1{
+    width: 50%;
+}
+.puf-input2{
+    width: 65%;
+}
+.add-title{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    border-bottom: 1px solid darkslateblue;
+    text-align: center;
+}
+.pufsName{
+    width: 87%;
+    margin: 3% 0 3% 5%;
+    /*text-align: center;*/
+}
+.pufAB{
+    display: flex;
+    justify-content: space-around;
+}
+.pufAB>div{
+    width: 45%;
+    /*border: 1px solid chocolate;*/
+}
+.pufAB>div>div{
+    display: flex;
+    justify-content: center;
+}

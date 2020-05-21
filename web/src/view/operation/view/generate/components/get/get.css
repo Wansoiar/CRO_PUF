@@ -1,0 +1,28 @@
+.get{
+    box-sizing: border-box;
+    padding: 3% 4%;
+    height: 55%;
+    width: 100%;
+}
+.result-list{
+    height: 80%;
+    margin: 3% 3%;
+    display: flex;
+    justify-content: space-around;
+}
+.result{
+    width: 37%;
+    height: 75%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid darkslateblue;
+}
+.port{
+    float: right;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 13%;
+}
