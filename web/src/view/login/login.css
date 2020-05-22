@@ -14,6 +14,7 @@
     background-color: white;
     box-shadow: 0 0 17px rgba(0,0,0,.7) ;
     z-index: 2;
+    animation: log 1s ease-in-out 0s 1 normal;
 }
 .log{
     font-size: 35px;
@@ -46,6 +47,7 @@
     border-left: 250px solid transparent;
     border-right: 250px solid transparent;
     border-top: 350px solid black;
+    animation: log 1s ease-in-out 0s 1 normal;
 }
 .log-area2{
     position: absolute;
@@ -53,4 +55,13 @@
     width: 60%;
     height: 3%;
     background-color: black;
+    animation: log-t 1s ease-in-out 0s 1 normal;
+}
+@keyframes log{
+    from{transform:translate(0,-5px)}
+    to{transform:translate(0,0)}
+}
+@keyframes log-t{
+    from{transform:scaleX(0.3)}
+    to{transform:scaleX(1)}
 }

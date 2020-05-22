@@ -8,14 +8,38 @@ import './operation.css';
 
 export default class Operation extends Component{
 
+    chevronRight = (event) => {
+        let current = event.target;
+        console.log(event.target);
+        let  parent = current.parentNode ;
+        let  childs = parent.children ;
+        for( let i = 0; i <= childs.length - 2 ; i++ ){
+            let chevron = childs[i].getElementsByTagName('span')[0];
+            if( childs[i] === current ){
+                chevron.className += ' to-right-active';
+            }else{
+                chevron.className = 'glyphicon glyphicon-chevron-right to-right';
+            }
+        }
+    };
+
+    clearRight = (event) => {
+        let  parent = event.target.parentNode ;
+        let  childs = parent.children ;
+        for( let i = 0; i <= childs.length - 2 ; i++ ){
+            let chevron = childs[i].getElementsByTagName('span')[0];
+            chevron.className = 'glyphicon glyphicon-chevron-right to-right';
+        }
+    };
+
     render(){
         return(
             <div className='operation'>
                 <div className='puf-list'>
                     <ul className="list-group puf-ul">
-                        <NavLink className="list-group-item" to='/operation/1'>Puf1<span className='glyphicon glyphicon-chevron-right'/></NavLink>
-                        <NavLink className="list-group-item" to='/operation/2'>Puf2</NavLink>
-                        <NavLink className="list-group-item" to='/operation/addPuf'><span className='glyphicon glyphicon-plus'/>添加新的PUF</NavLink>
+                        <NavLink className="list-group-item" to='/operation/1' onClick={this.chevronRight}>Puf1<span className='glyphicon glyphicon-chevron-right to-right'/></NavLink>
+                        <NavLink className="list-group-item" to='/operation/2' onClick={this.chevronRight}>Puf2<span className='glyphicon glyphicon-chevron-right to-right'/></NavLink>
+                        <NavLink className="list-group-item" to='/operation/addPuf' onClick={this.clearRight}><span className='glyphicon glyphicon-plus'/>添加新的PUF</NavLink>
                     </ul>
                 </div>
                 <div className='container puf-show'>

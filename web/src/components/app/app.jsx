@@ -16,11 +16,11 @@ export default class App extends Component{
                 <nav className='navbar navbar-default navbar-fixed-top navbar-inverse myNav'>
                     <div className='container'>
                         <ul className='nav navbar-nav nav-pills'>
-                            <li><NavLink to='/welcome'>首页</NavLink></li>
-                            <li><NavLink to='/operation'>密钥共享操作</NavLink></li>
+                            <li><NavLink to='/welcome'><span className='glyphicon glyphicon-home'/> 首页</NavLink></li>
+                            <li><NavLink to='/operation'><span className='glyphicon glyphicon-export'/> 密钥共享操作</NavLink></li>
                         </ul>
                         <ul className='nav navbar-nav nav-pills navbar-right'>
-                            <li><NavLink to='/login'>登录</NavLink></li>
+                            <li><NavLink to='/login'><span className='glyphicon glyphicon-log-in'/> 登录</NavLink></li>
                             <li><a><span className='glyphicon glyphicon-option-vertical' aria-hidden="true"/></a></li>
                             <li><NavLink to='/register'>注册</NavLink></li>
                         </ul>

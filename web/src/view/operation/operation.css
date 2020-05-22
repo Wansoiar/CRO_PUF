@@ -27,3 +27,10 @@
     background-color: #6C6C72;
     border-color: #6C6C72;
 }
+.to-right{
+    display: none;
+}
+.to-right-active{
+    display: block;
+    float: right;
+}
