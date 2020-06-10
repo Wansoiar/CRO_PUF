@@ -1,25 +1,4 @@
-.myNav{
-    font-family:  'NSimSun', serif;
-    color: white !important;
-    font-weight: bolder;
-    font-size: 110%;
-    z-index: 999;
-    background-color: #2C2C32;
-    border-color: #2C2C32;
-    box-shadow: 0 2px 5px rgba(0,0,0,.9) ;
-}
 .myContainer{
     /*background-color: rgba(0,0,0,.01);*/
     background-color: #F9F9F9;
-}
-.users{
-    font-family: "Helvetica Neue", serif;
-    font-size: large;
-}
-.users span{
-    font-size: large;
-    color: white;
-}
-.nav2{
-    display: none;
 }

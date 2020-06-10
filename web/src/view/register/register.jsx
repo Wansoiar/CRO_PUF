@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {createBrowserHistory} from 'history';
 
 import './register.css';
+import Nav from '../nav/nav';
 
 export default class Register extends Component{
 
@@ -54,31 +55,34 @@ export default class Register extends Component{
 
     render(){
         return(
-            <div className='register'>
-                <div className="alert alert-success alert-success1 hide" role="alert">
-                    <strong>注册成功！3秒后将跳转登陆页面...</strong>
+            <div style={{height: '100%',width: '100%'}}>
+                <Nav/>
+                <div className='register'>
+                    <div className="alert alert-success alert-success1 hide" role="alert">
+                        <strong>注册成功！3秒后将跳转登陆页面...</strong>
+                    </div>
+                    <div className='container register-reg'>
+                        <h3 className='reg'>注册</h3>
+                        <form>
+                            <div className='form-group'>
+                                <label htmlFor="userName">设置用户名：</label>
+                                <input type='text' className='form-control' id='userName' placeholder='New Name' value={this.state.regName} onChange={this.regNameChange}/>
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor="userPwd">设置密码：</label>
+                                <input type='password' className='form-control' id='userPwd' placeholder='New Password' value={this.state.regPwd} onChange={this.regPwdChange}/>
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor="userPwd">再次输入密码：</label>
+                                <input type='password' className='form-control reg-check' id='userPwd' placeholder='New Password' ref={input => this.checkInput = input} onKeyUp={this.pwdCheck}/>
+                                <span className='glyphicon glyphicon-ok-circle reg-check-logo'/>
+                            </div>
+                            <button type="button" className="btn btn-default center-block btn-reg" onClick={this.alertSuccess}>注册</button>
+                        </form>
+                    </div>
+                    <div className='reg-area1'/>
+                    <div className='reg-area2'/>
                 </div>
-                <div className='container register-reg'>
-                    <h3 className='reg'>注册</h3>
-                    <form>
-                        <div className='form-group'>
-                            <label htmlFor="userName">设置用户名：</label>
-                            <input type='text' className='form-control' id='userName' placeholder='New Name' value={this.state.regName} onChange={this.regNameChange}/>
-                        </div>
-                        <div className='form-group'>
-                            <label htmlFor="userPwd">设置密码：</label>
-                            <input type='password' className='form-control' id='userPwd' placeholder='New Password' value={this.state.regPwd} onChange={this.regPwdChange}/>
-                        </div>
-                        <div className='form-group'>
-                            <label htmlFor="userPwd">再次输入密码：</label>
-                            <input type='password' className='form-control reg-check' id='userPwd' placeholder='New Password' ref={input => this.checkInput = input} onKeyUp={this.pwdCheck}/>
-                            <span className='glyphicon glyphicon-ok-circle reg-check-logo'/>
-                        </div>
-                        <button type="button" className="btn btn-default center-block btn-reg" onClick={this.alertSuccess}>注册</button>
-                    </form>
-                </div>
-                <div className='reg-area1'/>
-                <div className='reg-area2'/>
             </div>
         )
     }

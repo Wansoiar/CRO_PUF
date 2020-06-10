@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {NavLink, Route, Switch} from 'react-router-dom';
-import PUbSub from 'pubsub-js';
 
 import AddPuf from './view/add-puf/add-puf';
 import Generate from './view/generate/generate';
 import './operation.css';
+import Nav from '../nav/nav';
 
 
 export default class Operation extends Component{
@@ -38,22 +38,24 @@ export default class Operation extends Component{
 
     render(){
         return(
-            <div className='operation'>
-                <div className='puf-list'>
-                    <ul className="list-group puf-ul">
-                        <NavLink className="list-group-item" to='/operation/1' onClick={this.chevronRight}>Puf1<span className='glyphicon glyphicon-chevron-right to-right'/></NavLink>
-                        {/*<NavLink className="list-group-item" to='/operation/2' onClick={this.chevronRight}>Puf2<span className='glyphicon glyphicon-chevron-right to-right'/></NavLink>*/}
-                        <NavLink className="list-group-item" to='/operation/addPuf' onClick={this.clearRight}><span className='glyphicon glyphicon-plus'/>添加新的PUF</NavLink>
-                    </ul>
+            <div style={{height: '100%',width: '100%'}}>
+                <Nav/>
+                <div className='operation'>
+                    <div className='puf-list'>
+                        <ul className="list-group puf-ul">
+                            <NavLink className="list-group-item" to='/operation/1' onClick={this.chevronRight}>Puf1<span className='glyphicon glyphicon-chevron-right to-right'/></NavLink>
+                            {/*<NavLink className="list-group-item" to='/operation/2' onClick={this.chevronRight}>Puf2<span className='glyphicon glyphicon-chevron-right to-right'/></NavLink>*/}
+                            <NavLink className="list-group-item" to='/operation/addPuf' onClick={this.clearRight}><span className='glyphicon glyphicon-plus'/>添加新的PUF</NavLink>
+                        </ul>
+                    </div>
+                    <div className='container puf-show'>
+                        <Switch>
+                            <Route path='/operation/1' component={Generate}/>
+                            {/*<Route path='/operation/2' component={Generate}/>*/}
+                            <Route path='/operation/addPuf' component={AddPuf}/>
+                        </Switch>
+                    </div>
                 </div>
-                <div className='container puf-show'>
-                    <Switch>
-                        <Route path='/operation/1' component={Generate}/>
-                        {/*<Route path='/operation/2' component={Generate}/>*/}
-                        <Route path='/operation/addPuf' component={AddPuf}/>
-                    </Switch>
-                </div>
-
             </div>
         )
     }
