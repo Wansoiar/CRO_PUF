@@ -9,10 +9,11 @@ export default class HistoryList extends Component{
         return(
             <div className='history'>
                 <p><span className='glyphicon glyphicon-tasks'/> 历史生成记录：</p>
+                <div className='no-history' style={{display: 'none'}}><h2>暂无历史生成记录</h2></div>
                 <ul className="list-group his-list">
                     <HistoryListItem/>
-                    <HistoryListItem/>
-                    <HistoryListItem/>
+                    {/*<HistoryListItem/>*/}
+                    {/*<HistoryListItem/>*/}
                 </ul>
             </div>
         )

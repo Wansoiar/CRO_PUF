@@ -4,9 +4,21 @@ import './add-puf.css';
 
 export default class AddPuf extends Component{
 
+    alertAdd = () => {
+        let alert = document.getElementsByClassName('alert-success');
+        let claName = alert[0].className.split(' ');
+        alert[0].className = claName[0] + ' ' + claName[1] + ' in';
+        setTimeout(function () {
+            alert[0].className = claName[0] + ' ' + claName[1] + ' ' + claName[2];
+        },3000);
+    };
+
     render(){
         return(
             <div className='add'>
+                <div className="alert alert-success alert-success2 hide" role="alert">
+                    <strong>PUF组信息上传成功！</strong>
+                </div>
                 <div className='add-title'>
                     <h3>上传新的延迟矩阵</h3>
                 </div>
@@ -28,7 +40,7 @@ export default class AddPuf extends Component{
                                 </div>
                                 <div className='form-group add-fit'>
                                     <label htmlFor="pufAMatrix">PUFA延迟矩阵：</label>
-                                    <textarea rows={8} cols={7}  className='form-control puf-input2' id='pufAMatrix' placeholder='PufA-Matrix'/>
+                                    <input type='file' className='form-control puf-input3' id='pufAMatrix' placeholder='PufA-Matrix'/>
                                     <div className='add-area'/>
                                 </div>
                             </div>
@@ -40,12 +52,12 @@ export default class AddPuf extends Component{
                                 </div>
                                 <div className='form-group  add-fit'>
                                     <label htmlFor="pufBMatrix">PUFB延迟矩阵：</label>
-                                    <textarea rows={8} cols={7}  className='form-control puf-input2' id='pufBMatrix' placeholder='PufB-Matrix'/>
+                                    <input type='file' className='form-control puf-input3' id='pufBMatrix' placeholder='PufB-Matrix'/>
                                     <div className='add-area'/>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-default center-block btn-add">上传新PUF组信息</button>
+                        <button type="button" className="btn btn-default center-block btn-add" onClick={this.alertAdd}>上传新PUF组信息</button>
                     </form>
                 </div>
             </div>

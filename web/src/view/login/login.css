@@ -65,3 +65,10 @@
     from{transform:scaleX(0.3)}
     to{transform:scaleX(1)}
 }
+.alert-success1{
+    width: 250px;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 5;
+}

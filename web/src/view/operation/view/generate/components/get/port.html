@@ -1,19 +1,208 @@
-
-<HTML>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
     <title>web调用comm插件,web串口调试助手,web串口通信</title>
     <meta charset="UTF-8">
     <meta name="Keywords" content="IE调用comm,web调用comm,activex,串口设备访问,web串口通信" />
     <meta name="Description" content="可以用于web系统调用串口设备,web串口通信,可对接电子秤 地磅 条码枪 二维码枪等设备。" />
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="../../../../../../../public/js/TComm-mini.js"></script>
     <style>
+        html{
+            border: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F9F9F9;
+        }
         td {
             font-size: 12px;
         }
+        select{
+            width: 70px;
+            height: 20px;
+        }
+        #port{
+            font-family:  'NSimSun', serif;
+            color: white !important;
+            font-weight: bolder;
+            font-size: 110%;
+            z-index: 999;
+            background-color: #2C2C32;
+            border-color: #2C2C32;
+            box-shadow: 0 2px 5px rgba(0,0,0,.9);
+        }
+        .table{
+            text-align: left;
+        }
+        .tables>tbody>tr>td{
+            border: 0 solid !important;
+        }
+        .title{
+            text-align: center;
+        }
+        #opera{
+            border: 1px solid #bbb !important;
+            /*background-color: lightpink;*/
+        }
+        #show{
+            border: 1px solid #bbb !important;
+            /*background-color: lightskyblue;*/
+        }
+        textarea{
+            width:100%;
+            background-color: white;
+            border: 1px solid #999;
+        }
+        #content{
+            padding-top: 130px;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<BODY style="margin:0;padding:0;" scroll="no">
+<body style="margin:0;padding:0;" scroll="no">
+<table width="100%" height="100%" cellpadding="0" cellspacing="0" class="table table-bordered">
+    <tr>
+        <td id="port" height="30px">
+            <h3>串口助手</h3>
+        </td>
+    </tr>
+    <tr id="content">
+        <td>
+            <table width="100%" height="100%" cellpadding="0" cellspacing="0" class="tables table">
+                <tr>
+                    <td width="220" valign="top" id="opera">
+                        <table width="100%" cellpadding="0" cellspacing="2" class="tables table">
+                            <tr>
+                                <td width="80" class="title">串口：</td>
+                                <td>
+                                    <select id="COMLI">
+                                        <option value="-1">选择串口</option>
+                                        <option value="1">COM1</option>
+                                        <option value="2">COM2</option>
+                                        <option value="3">COM3</option>
+                                        <option value="4">COM4</option>
+                                        <option value="5">COM5</option>
+                                        <option value="6">COM6</option>
+                                        <option value="7">COM7</option>
+                                        <option value="8">COM8</option>
+                                        <option value="9">COM9</option>
+                                        <option value="10">COM10</option>
+                                        <option value="11">COM11</option>
+                                        <option value="12">COM12</option>
+                                        <option value="13">COM13</option>
+                                        <option value="14">COM14</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="80" class="title">波特率：</td>
+                                <td>
+                                    <select id="sbtl">
+                                        <option value="300">300</option>
+                                        <option value="600">600</option>
+                                        <option value="1200">1200</option>
+                                        <option value="2400">2400</option>
+                                        <option value="4800">4800</option>
+                                        <option value="9600">9600</option>
+                                        <option value="19200">19200</option>
+                                        <option value="38400">38400</option>
+                                        <option value="57600">57600</option>
+                                        <option value="115200" selected>115200</option>
+
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="title">数据位：</td>
+                                <td>
+                                    <select id="ssjw">
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8" selected>8</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="title">校验位：</td>
+                                <td>
+                                    <select id="sjyw">
+                                        <option value="N" selected>None</option>
+                                        <option value="O">Odd</option>
+                                        <option value="E">Even</option>
+                                        <option value="M">Mark</option>
+                                        <option value="S">Space</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="title">停止位：</td>
+                                <td>
+                                    <select id="stzw">
+                                        <option value="1" selected>1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="title">格式：</td>
+                                <td>
+                                    <select id="ssjt">
+                                        <option value="HEX" selected>HEX</option>
+                                        <option value="utf-8">utf-8</option>
+                                        <option value="Unicode">Unicode</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr><td class="title"><input type="checkbox" id="cboRTS"> RTS</td></tr>
+                            <tr class="clear">
+                                <td colspan="2">
+                                    <input type="button" id="btnRead" value="读取" style="width:60px;" />
+                                    <input type="checkbox" id="cboAuto" checked />
+                                    <label for="cboAuto"> 自动读取</label>
+                                </td>
+                            </tr>
+                            <tr><td width='220' colspan="2" class="title" style="font-weight: bold">串口状态：<span>（未开启）</span></td></tr>
+                            <tr style="text-align: center"><td width='220' colspan="2"><input type="button" id="btnOpen" value="打开串口" onclick="selcomport()"/></td></tr>
+<!--                            <tr class="clear"><td width='220' colspan="2"><input type="button" value="获取网卡信息" onclick="getMacInfo()" /></td></tr>-->
+<!--                            <tr class="clear"><td width='220' colspan="2"><input type="button" value="获取数据" onclick="getFileData()" /></td></tr>-->
+<!--                            <tr class="clear"><td width='220' colspan="2"><input type="button" value="设置数据" onclick="setFileData()" /></td></tr>-->
+                            <tr style="text-align: center"><td width='220' colspan="2"><input type="button" value="关闭串口" onclick="setFileData()" /></td></tr>
+
+                        </table>
+                    </td>
+                    <td id="show">
+                        <table width="100%" height="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td height="100">
+                                    <form onsubmit="send();return false;">
+                                        <table width="100%" height="100%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <label>发送区:</label>
+                                                    <textarea id="t_sdata" style="width:100%;height:210px;background-color: white;font-size: 16px"> </textarea><br />
+                                                </td>
+                                                <td width="100" align=center><input type="submit" value="发送" id="btnSend" style="height:30px;width:60px;" /></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>接收区:</label>
+                                    <textarea id="t_dataIn" style="width:100%;height:80%;background-color: white;font-size: 16px"> </textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../../../../../../../public/js/TComm-mini.js"></script>
 <script>
     //document.write(navigator.userAgent);
     var tcom=null;
@@ -136,11 +325,12 @@
     //主动读取串口数据
     function UserReadData() {
         tcom.doRead(function (dat) {
-            if ($("#t_dataIn").val().length > 10000) $("#t_dataIn").val("");
-            if (CUR_SJT == "hex") {
-                $("#t_dataIn").val($("#t_dataIn").val() + "\n" + dat.data);
+            let dataIn = $("#t_dataIn");
+            if (dataIn.val().length > 10000) dataIn.val("");
+            if (CUR_SJT === "hex") {
+                dataIn.val(dataIn.val() + "\n" + dat.data);
             } else {
-                $("#t_dataIn").val($("#t_dataIn").val() + "\n" + dat.data);
+                dataIn.val(dataIn.val() + "\n" + dat.data);
             }
         });
     }
@@ -150,135 +340,4 @@
     })
 
 </script>
-<table width="100%" height="100%" cellpadding="0" cellspacing="0">
-    <tr>
-        <td height="30" style="border-bottom:solid 1px #ccc;">
-            <h3>串口助手</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <table width="100%" height="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="200" valign="top">
-                        <table width="100%" cellpadding="0" cellspacing="2">
-                            <tr>
-                                <td width="80">串口</td>
-                                <td>
-                                    <select id="COMLI" style="width:130px">
-                                        <option value="-1">选择串口</option>
-                                        <option value="1">COM1</option>
-                                        <option value="2">COM2</option>
-                                        <option value="3">COM3</option>
-                                        <option value="4">COM4</option>
-                                        <option value="5">COM5</option>
-                                        <option value="6">COM6</option>
-                                        <option value="7">COM7</option>
-                                        <option value="8">COM8</option>
-                                        <option value="9">COM9</option>
-                                        <option value="10">COM10</option>
-                                        <option value="11">COM11</option>
-                                        <option value="12">COM12</option>
-                                        <option value="13">COM13</option>
-                                        <option value="14">COM14</option>
-
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="80">波特率：</td>
-                                <td>
-                                    <select id="sbtl">
-                                        <option value="300">300</option>
-                                        <option value="600">600</option>
-                                        <option value="1200">1200</option>
-                                        <option value="2400">2400</option>
-                                        <option value="4800">4800</option>
-                                        <option value="9600">9600</option>
-                                        <option value="19200">19200</option>
-                                        <option value="38400">38400</option>
-                                        <option value="57600">57600</option>
-                                        <option value="115200" selected>115200</option>
-
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>数据位：</td>
-                                <td>
-                                    <select id="ssjw">
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8" selected>8</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>校验位：</td>
-                                <td>
-                                    <select id="sjyw">
-                                        <option value="N" selected>None</option>
-                                        <option value="O">Odd</option>
-                                        <option value="E">Even</option>
-                                        <option value="M">Mark</option>
-                                        <option value="S">Space</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>停止位：</td>
-                                <td>
-                                    <select id="stzw">
-                                        <option value="1" selected>1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>格式：</td>
-                                <td>
-                                    <select id="ssjt">
-                                        <option value="HEX" selected>HEX</option>
-                                        <option value="utf-8">utf-8</option>
-                                        <option value="Unicode">Unicode</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr><td></td><td><input type="checkbox" id="cboRTS">RTS</td></tr>
-                            <tr><td colspan="2"><input type="checkbox" id="cboAuto" checked /><label for="cboAuto">自动读取</label> <input type="button" id="btnRead" value="读取" style="width:60px;" /></td></tr>
-                            <tr><td></td><td><input type="button" id="btnOpen" value="打开串口" onclick="selcomport()" /></td></tr>
-                            <tr><td></td><td><input type="button" value="获取网卡信息" onclick="getMacInfo()" /></td></tr>
-                            <tr><td></td><td><input type="button" value="获取数据" onclick="getFileData()" /></td></tr>
-                            <tr><td></td><td><input type="button" value="设置数据" onclick="setFileData()" /></td></tr>
-
-                            <tr><td>插件下载</td><td><a href="/files/TComm2.exe">下载</a></td></tr>
-                            <tr><td colspan="2"><a href="https://wmp.iyanhong.com/TComm/commt2.html">https页面访问</a></td></tr>
-                        </table>
-                    </td>
-                    <td>
-                        <table width="100%" height="100%" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td height="100">
-                                    <form onsubmit="send();return false;">
-                                        <table width="100%" height="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td>
-                                                    <textarea id="t_sdata" style="width:100%;height:80px;" />41 54 0D</textarea><br />
-                                                    (41 54 0D为“AT\r”转换为HEX)
-                                                </td>
-                                                <td width="100" align=center><input type="submit" value="发送" disabled id="btnSend" style="height:60px;width:60px;" /></td>
-                                            </tr>
-                                        </table>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr><td><textarea id="t_dataIn" style="width:100%;height:100%"></textarea></td></tr>
-                        </table>
-                    </td>
-            </table>
-        </td>
-    </tr>
-</table>
-</BODY>
-</HTML>
+</html>

@@ -14,3 +14,9 @@
     height: 85%;
     overflow: scroll;
 }
+.no-history{
+    color: #aaaaaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
