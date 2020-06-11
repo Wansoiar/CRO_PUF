@@ -5,12 +5,36 @@ import Get from "./components/get/get";
 import './generate.css';
 
 export default class Generate extends Component{
+    
+    
+    // componentWillReceiveProps(next){
+    //     console.log('gen', this.props);
+    //     console.log('gen', next);
+    // }
+
+    onChange = (puf,newCS) => {
+        this.props.onChangeState(puf,newCS);
+    }
+
+    onDelete = (puf,index) => {
+        this.props.onDeleteState(puf,index);
+    }
+    
 
     render(){
+        let {names} = this.props;
+        let puf;
+        if(this.props.puf === undefined){
+            puf = [];
+        }else{
+            puf = this.props.puf;
+        }
+        // let names = '1', puf = [{a: 2}, {b: 4}];
+        console.log('111t',this.props, puf);
         return(
             <div className='generate'>
-                <Get/>
-                <HistoryList/>
+                <Get onChangeState = {this.onChange} names = {names} puf = {puf} pufNum = {this.props.pufNum}/>
+                <HistoryList onDeleteList = {this.onDelete} names = {names} puf = {puf} pufNum = {this.props.pufNum}/>
             </div>
         )
     }

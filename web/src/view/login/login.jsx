@@ -8,7 +8,7 @@ import Nav from '../nav/nav';
 export default class Login extends Component{
 
     alertLogin = () => {
-        console.log(this.props.login);
+        // console.log(this.props.login);
         let history = createBrowserHistory();
         //提示框
         let alert = document.getElementsByClassName('alert-success');
@@ -16,6 +16,7 @@ export default class Login extends Component{
         alert[0].className = claName[0] + ' ' + claName[1] + ' ' + claName[2] + ' in';
         setTimeout(function () {
             alert[0].className = claName[0] + ' ' + claName[1] + ' ' + claName[2] + ' ' + claName[3];
+            //将登陆信息储存到localStroage中
             let storage = window.localStorage;
             storage.setItem('login',true);
             //页面跳转到操作页面

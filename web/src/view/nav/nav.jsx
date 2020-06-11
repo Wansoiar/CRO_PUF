@@ -12,12 +12,14 @@ export default class Nav extends Component{
     }
 
     componentDidMount(){
+        //获取localStroage中的值，来更新state
         let stroage = window.localStorage;
         const logInfo = stroage.getItem('login');
         this.setState({isLogin: logInfo});
     }
 
     logout = () => {
+        //退出登录
         let storage = window.localStorage;
         storage.removeItem('login');
         let history = createBrowserHistory();
@@ -25,7 +27,6 @@ export default class Nav extends Component{
     }
 
     render(){
-        console.log(this.state.isLogin);
         return(
             <nav className='navbar navbar-default navbar-fixed-top navbar-inverse myNav'>
                 <div className='container'>
