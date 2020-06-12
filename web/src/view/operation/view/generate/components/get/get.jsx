@@ -6,6 +6,7 @@ export default class Get extends Component{
 
 
     addList = (puf,newSC) => {
+        
         this.props.onChangeState(puf,newSC);
         // console.log(this.props.puf); 
     }
@@ -33,6 +34,7 @@ export default class Get extends Component{
         pufbc.innerText = bC;
         let timer = new Date();
         let time = this.dateContorl(timer, 'yyyy-MM-dd hh:mm:ss');
+        
         this.addList(this.props.pufNum, {time: time, as: aS, ac: aC, bs: bS, bc: bC});
     }
 

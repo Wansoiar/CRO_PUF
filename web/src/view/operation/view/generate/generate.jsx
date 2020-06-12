@@ -30,11 +30,12 @@ export default class Generate extends Component{
             puf = this.props.puf;
         }
         // let names = '1', puf = [{a: 2}, {b: 4}];
-        console.log('111t',this.props, puf);
+        // console.log('111t',this.props, puf);
+        let pufNum = this.props.pufNum;
         return(
             <div className='generate'>
-                <Get onChangeState = {this.onChange} names = {names} puf = {puf} pufNum = {this.props.pufNum}/>
-                <HistoryList onDeleteList = {this.onDelete} names = {names} puf = {puf} pufNum = {this.props.pufNum}/>
+                <Get onChangeState = {this.onChange} names = {names} pufNum = {pufNum}/>
+                <HistoryList onDeleteList = {this.onDelete} names = {names} puf = {puf} pufNum = {pufNum}/>
             </div>
         )
     }

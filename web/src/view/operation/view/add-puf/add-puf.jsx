@@ -4,21 +4,36 @@ import './add-puf.css';
 
 export default class AddPuf extends Component{
 
-    alertAdd = () => {
-        let alert = document.getElementsByClassName('alert-success');
-        let claName = alert[0].className.split(' ');
-        alert[0].className = claName[0] + ' ' + claName[1] + ' in';
-        setTimeout(function () {
-            alert[0].className = claName[0] + ' ' + claName[1] + ' ' + claName[2];
-        },3000);
+    state = {
+        groupName: '', 
+        PUFA: '', 
+        PUFB: ''
+    }
+
+    upLoad = () => {
+        let newName = this.state;
+        this.props.onChangeState('pufs', newName);
     };
+
+    updateGroupName = (e) => {
+        this.setState({
+            groupName: e.target.value
+        })
+    }
+    updatePUFA = (e) => {
+        this.setState({
+            PUFA: e.target.value
+        })
+    }
+    updatePUFB = (e) => {
+        this.setState({
+            PUFB: e.target.value
+        })
+    }
 
     render(){
         return(
             <div className='add'>
-                <div className="alert alert-success alert-success2 hide" role="alert">
-                    <strong>PUF组信息上传成功！</strong>
-                </div>
                 <div className='add-title'>
                     <h3>上传新的延迟矩阵</h3>
                 </div>
@@ -27,7 +42,7 @@ export default class AddPuf extends Component{
                         <div className='form-group pufsName'>
                             <div className='center-block'>
                                 <label htmlFor="pufsName">新PUF组名称：</label>
-                                <input type='text' className='form-control puf-input1' id='pufsName' placeholder='Pufs-Name'/>
+                                <input type='text' className='form-control puf-input1' id='pufsName' placeholder='Pufs-Name' value={this.state.groupName} onChange={this.updateGroupName} />
                                 <div className='add-area area1'/>
                             </div>
                         </div>
@@ -35,7 +50,7 @@ export default class AddPuf extends Component{
                             <div>
                                 <div className='form-group'>
                                     <label htmlFor="pufAName">PUFA设备名称：</label>
-                                    <input type='text' className='form-control puf-input2' id='pufAName' placeholder='PufA-Name'/>
+                                    <input type='text' className='form-control puf-input2' id='pufAName' placeholder='PufA-Name' value={this.state.PUFA} onChange={this.updatePUFA}/>
                                     <div className='add-area'/>
                                 </div>
                                 <div className='form-group add-fit'>
@@ -47,7 +62,7 @@ export default class AddPuf extends Component{
                             <div>
                                 <div className='form-group'>
                                     <label htmlFor="pufBName">PUFB设备名称：</label>
-                                    <input type='text' className='form-control puf-input2' id='pufBName' placeholder='PufB-Name'/>
+                                    <input type='text' className='form-control puf-input2' id='pufBName' placeholder='PufB-Name' value={this.state.PUFB} onChange={this.updatePUFB}/>
                                     <div className='add-area'/>
                                 </div>
                                 <div className='form-group  add-fit'>
@@ -57,7 +72,7 @@ export default class AddPuf extends Component{
                                 </div>
                             </div>
                         </div>
-                        <button type="button" className="btn btn-default center-block btn-add" onClick={this.alertAdd}>上传新PUF组信息</button>
+                        <button type="button" className="btn btn-default center-block btn-add" onClick={this.upLoad}>上传新PUF组信息</button>
                     </form>
                 </div>
             </div>

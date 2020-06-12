@@ -18,8 +18,7 @@ export default class Operation extends Component{
     // }
 
     componentDidMount(){
-        this.setState({ab: '123'});
-        this.onInitState('lili');
+        
     }
 
     onInitState = (pufNum) => {
@@ -31,6 +30,7 @@ export default class Operation extends Component{
 
     onChangeState = (puf,newCS) => {
         const pufi = this.state[puf];
+        console.log('get', puf,pufi);
         pufi.push(newCS);
         this.setState({[puf]: pufi});
         console.log(pufi);
@@ -93,15 +93,13 @@ export default class Operation extends Component{
                     <div className='container puf-show'>
                         <Switch>
                             {pufs.map((data, index) => {
-                                console.log(index);
                                 let num = index + 1;
                                 let pufNum = 'puf' + num.toString();
-                                console.log(pufNum);
                                 let names = pufs[index];
-                                return (<Route path = '/operation/:id' key={index} component = {() => (<Generate onChangeState = {this.onChangeState} onDeleteState = {this.onDeleteState} pufNum = {pufNum} puf = {this.state[num]} names = {names} />)}/>)
+                                return (<Route path = {'/operation/'+ (index+1)} key={index} component = {() => (<Generate onChangeState = {this.onChangeState} onDeleteState = {this.onDeleteState} pufNum = {pufNum} puf = {this.state[pufNum]} names = {names} />)}/>)
                             })}
                             {/*<Route path='/operation/2' component={Generate}/>*/}
-                            <Route path='/operation/addPuf' component={AddPuf}/>
+                            <Route path='/operation/addPuf' component={() => (<AddPuf onChangeState = {this.onChangeState}/>)}/>
                         </Switch>
                     </div>
                 </div>
