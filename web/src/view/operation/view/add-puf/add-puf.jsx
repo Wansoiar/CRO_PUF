@@ -5,8 +5,8 @@ import './add-puf.css';
 export default class AddPuf extends Component{
 
     state = {
-        groupName: '', 
-        PUFA: '', 
+        groupName: '',
+        PUFA: '',
         PUFB: ''
     }
 

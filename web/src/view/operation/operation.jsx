@@ -10,7 +10,7 @@ import Nav from '../nav/nav';
 export default class Operation extends Component{
 
     state = {
-        pufs: [{groupName: 'Puf1', PUFA: 'xiaoA', PUFB: 'xiaoB'}, {groupName: 'Puf2', PUFA: 'isA', PUFB: 'isB'}, {groupName: 'Puf3', PUFA: 'xiA', PUFB: 'xiB'}],
+        pufs: []
     }
 
     // componentWillReceiveProps(){
@@ -32,14 +32,14 @@ export default class Operation extends Component{
         const pufi = this.state[puf];
         console.log('get', puf,pufi);
         pufi.push(newCS);
-        this.setState({[puf]: pufi});
+        this.setState(() => ({[puf]: pufi}));
         console.log(pufi);
     }
 
     onDeleteState = (puf,index) => {
         const pufi = this.state[puf];
         pufi.splice(index,1);
-        this.setState({[puf]: pufi});
+        this.setState(() => ({[puf]: pufi}));
         console.log(pufi);
     }
 

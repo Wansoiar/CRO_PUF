@@ -3,25 +3,31 @@ import {NavLink} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
 
 import './nav.css';
-import Login from '../login/login';
 
 export default class Nav extends Component{
 
     state = {
-        isLogin: false
+        isLogin: false,
+        username: ''
     }
 
     componentDidMount(){
         //获取localStroage中的值，来更新state
         let stroage = window.localStorage;
         const logInfo = stroage.getItem('login');
-        this.setState({isLogin: logInfo});
+        const username = stroage.getItem('username');
+        this.setState({
+            isLogin: logInfo,
+            username: username
+        });
     }
 
     logout = () => {
         //退出登录
         let storage = window.localStorage;
         storage.removeItem('login');
+        storage.removeItem('username');
+        storage.removeItem('pwd');
         let history = createBrowserHistory();
         history.push('/login');
     }
@@ -40,7 +46,7 @@ export default class Nav extends Component{
                         <li><NavLink to='/register'>注册</NavLink></li>
                     </ul>
                     <ul className='nav navbar-nav nav-pills navbar-right nav2' style={{display: this.state.isLogin?'inline-block':'none'}}>
-                        <li className='users'><a href='#'><span className='glyphicon glyphicon-user'/> xinan</a></li>
+                        <li className='users'><a href='#'><span className='glyphicon glyphicon-user'/> {this.state.username} </a></li>
                         <li><a href='#' onClick={this.logout}>退出<span className='glyphicon glyphicon-log-out'/></a></li>
                     </ul>
                 </div>
