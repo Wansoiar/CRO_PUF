@@ -53,7 +53,7 @@ export default class Get extends Component{
         return(
             <div className='get'>
                 <div className='port'>
-                    <a href='https://www.baidu.com' target='_blank'>打开串口助手</a>
+                    <a href='port.html' target='_blank'>打开串口助手</a>
                 </div>
                 <div className='btn-div'>
                 <button className='btn btn-default btn-get' onClick={this.getChallenge}>生成配置位S与Challenge对序列</button>
