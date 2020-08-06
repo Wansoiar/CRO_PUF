@@ -22,7 +22,7 @@ export default class Generate extends Component{
     
 
     render(){
-        let {names} = this.props;
+        const {names, showCS, pufNum, showCSNum} = this.props;
         let puf;
         if(this.props.puf === undefined){
             puf = [];
@@ -31,10 +31,9 @@ export default class Generate extends Component{
         }
         // let names = '1', puf = [{a: 2}, {b: 4}];
         // console.log('111t',this.props, puf);
-        let pufNum = this.props.pufNum;
         return(
             <div className='generate'>
-                <Get onChangeState = {this.onChange} names = {names} pufNum = {pufNum}/>
+                <Get onChangeState = {this.onChange} names = {names} pufNum = {pufNum} showCS = {showCS} showCSNum = {showCSNum}/>
                 <HistoryList onDeleteList = {this.onDelete} names = {names} puf = {puf} pufNum = {pufNum}/>
             </div>
         )

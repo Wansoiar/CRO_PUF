@@ -32,14 +32,16 @@ export default class Operation extends Component{
         const pufi = this.state[puf];
         console.log('get', puf,pufi);
         pufi.push(newCS);
-        this.setState(() => ({[puf]: pufi}));
-        console.log(pufi);
+        this.setState({
+            [puf]: pufi
+        });
+        console.log('pufi:',pufi);
     }
 
     onDeleteState = (puf,index) => {
         const pufi = this.state[puf];
         pufi.splice(index,1);
-        this.setState(() => ({[puf]: pufi}));
+        this.setState({[puf]: pufi});
         console.log(pufi);
     }
 
@@ -74,7 +76,9 @@ export default class Operation extends Component{
         console.log('save', this.state);
         for(let i=0;i<pufs.length;i++){
             let pufNum = 'puf' + (i + 1);
+            let showCSNum = 'showCS' + (i + 1);
             this.onInitState(pufNum);
+            this.onInitState(showCSNum);
         }
         console.log('xin ',this.state);
         return(
@@ -95,8 +99,9 @@ export default class Operation extends Component{
                             {pufs.map((data, index) => {
                                 let num = index + 1;
                                 let pufNum = 'puf' + num.toString();
+                                let showCSNum = 'showCS' + num.toString();
                                 let names = pufs[index];
-                                return (<Route path = {'/operation/'+ (index+1)} key={index} component = {() => (<Generate onChangeState = {this.onChangeState} onDeleteState = {this.onDeleteState} pufNum = {pufNum} puf = {this.state[pufNum]} names = {names} />)}/>)
+                                return (<Route path = {'/operation/'+ (index+1)} key={index} component = {() => (<Generate onChangeState = {this.onChangeState} onDeleteState = {this.onDeleteState} pufNum = {pufNum} showCSNum = {showCSNum} puf = {this.state[pufNum]} names = {names} showCS={this.state[showCSNum]}/>)}/>)
                             })}
                             {/*<Route path='/operation/2' component={Generate}/>*/}
                             <Route path='/operation/addPuf' component={() => (<AddPuf onChangeState = {this.onChangeState}/>)}/>

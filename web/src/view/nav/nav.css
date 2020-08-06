@@ -8,6 +8,10 @@
     border-color: #2C2C32;
     box-shadow: 0 2px 5px rgba(0,0,0,.9) ;
 }
+.myNav > .container{
+    padding: 0 20px 0 80px;
+    width: 100%;
+}
 .users{
     font-family: "Helvetica Neue", serif;
     font-size: large;
